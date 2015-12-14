@@ -53,7 +53,9 @@ var Autosuggest = (function (_Component) {
       cache: _react.PropTypes.bool, // Set it to false to disable in-memory caching
       id: _react.PropTypes.string, // Used in aria-* attributes. If multiple Autosuggest's are rendered on a page, they must have unique ids.
       scrollBar: _react.PropTypes.bool, // Set it to true when the suggestions container can have a scroll bar
-      theme: _react.PropTypes.object // Custom theme. See: https://github.com/markdalgleish/react-themeable
+      theme: _react.PropTypes.object, // Custom theme. See: https://github.com/markdalgleish/react-themeable
+      preInput: _react.PropTypes.element,
+      postInput: _react.PropTypes.element
     },
     enumerable: true
   }, {
@@ -647,6 +649,7 @@ var Autosuggest = (function (_Component) {
       return _react2['default'].createElement(
         'div',
         theme('root', 'root'),
+        this.props.preInput,
         _react2['default'].createElement('input', _extends({}, inputAttributes, {
           type: inputAttributes.type || 'text',
           value: value,
@@ -661,6 +664,7 @@ var Autosuggest = (function (_Component) {
           onKeyDown: this.onInputKeyDown,
           onFocus: this.onInputFocus,
           onBlur: this.onInputBlur })),
+        this.props.postInput,
         this.renderSuggestions(theme)
       );
     }

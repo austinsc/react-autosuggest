@@ -18,7 +18,9 @@ export default class Autosuggest extends Component {
     cache: PropTypes.bool,                  // Set it to false to disable in-memory caching
     id: PropTypes.string,                   // Used in aria-* attributes. If multiple Autosuggest's are rendered on a page, they must have unique ids.
     scrollBar: PropTypes.bool,              // Set it to true when the suggestions container can have a scroll bar
-    theme: PropTypes.object                 // Custom theme. See: https://github.com/markdalgleish/react-themeable
+    theme: PropTypes.object,                 // Custom theme. See: https://github.com/markdalgleish/react-themeable
+    preInput: PropTypes.element,
+    postInput: PropTypes.element
   }
 
   static defaultProps = {
@@ -552,6 +554,7 @@ export default class Autosuggest extends Component {
 
     return (
       <div {...theme('root', 'root')}>
+        {this.props.preInput}
         <input {...inputAttributes}
                type={inputAttributes.type || 'text'}
                value={value}
@@ -566,6 +569,7 @@ export default class Autosuggest extends Component {
                onKeyDown={this.onInputKeyDown}
                onFocus={this.onInputFocus}
                onBlur={this.onInputBlur} />
+        {this.props.postInput}
         {this.renderSuggestions(theme)}
       </div>
     );
