@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import debounce from 'debounce';
 import themeable from 'react-themeable';
 import sectionIterator from './sectionIterator';
+import {Input} from 'react-bootstrap/lib/Input';
 
 export default class Autosuggest extends Component {
   static propTypes = {
@@ -555,7 +556,7 @@ export default class Autosuggest extends Component {
     return (
       <div {...theme('root', 'root')}>
         {this.props.preInput}
-        <input {...inputAttributes}
+        <Input {...inputAttributes}
                type={inputAttributes.type || 'text'}
                value={value}
                autoComplete="off"
