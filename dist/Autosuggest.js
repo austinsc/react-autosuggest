@@ -34,6 +34,10 @@ var _sectionIterator = require('./sectionIterator');
 
 var _sectionIterator2 = _interopRequireDefault(_sectionIterator);
 
+var _reactBootstrapLibInput = require('react-bootstrap/lib/Input');
+
+var _reactBootstrapLibInput2 = _interopRequireDefault(_reactBootstrapLibInput);
+
 var Autosuggest = (function (_Component) {
   _inherits(Autosuggest, _Component);
 
@@ -650,7 +654,7 @@ var Autosuggest = (function (_Component) {
         'div',
         theme('root', 'root'),
         this.props.preInput,
-        _react2['default'].createElement('input', _extends({}, inputAttributes, {
+        _react2['default'].createElement(_reactBootstrapLibInput2['default'], _extends({}, inputAttributes, {
           type: inputAttributes.type || 'text',
           value: value,
           autoComplete: 'off',
