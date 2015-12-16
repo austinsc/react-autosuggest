@@ -130,7 +130,7 @@ var Autosuggest = (function (_Component) {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
       if (this.isControlledComponent) {
-        var inputValue = this.refs.input.value;
+        var inputValue = this.refs.input.refs.input.value;
 
         if (nextProps.value !== inputValue && !this.justClickedOnSuggestion && !this.justPressedUpDown && !this.justPressedEsc) {
           this.handleValueChange(nextProps.value);
@@ -527,7 +527,7 @@ var Autosuggest = (function (_Component) {
       }, function () {
         // This code executes after the component is re-rendered
         setTimeout(function () {
-          _this4.refs.input.focus();
+          _this4.refs.input.refs.input.focus();
           _this4.justClickedOnSuggestion = false;
         });
       });

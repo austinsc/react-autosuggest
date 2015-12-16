@@ -82,7 +82,7 @@ export default class Autosuggest extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.isControlledComponent) {
-      const inputValue = this.refs.input.value;
+      const inputValue = this.refs.input.refs.input.value;
 
       if (nextProps.value !== inputValue &&
           !this.justClickedOnSuggestion && !this.justPressedUpDown && !this.justPressedEsc) {
@@ -445,7 +445,7 @@ export default class Autosuggest extends Component {
     }, () => {
       // This code executes after the component is re-rendered
       setTimeout(() => {
-        this.refs.input.focus();
+        this.refs.input.refs.input.focus();
         this.justClickedOnSuggestion = false;
       });
     });
